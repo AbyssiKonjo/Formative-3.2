@@ -41,6 +41,9 @@ app.use((req, res, next) => {
 // -------- app routes go here -------- //
 app.use('/api/projects/', projectRoutes)
 app.use('/api/user', userRoutes);
+// Multer static files - from public/uploads
+app.use('/public/uploads')
+
 
 // Home route for the backend (url address)
 app.get('/', (req, res) => {
