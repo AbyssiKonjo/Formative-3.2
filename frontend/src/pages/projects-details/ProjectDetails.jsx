@@ -3,7 +3,8 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
-//IMPORT PROJECTS CONTEXT HOOK HERE
+//Import context here
+import { useProjectContext } from '../../hooks/useProjectContext'
 
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
@@ -18,7 +19,7 @@ const ProjectDetails = ({project}) => {
     const [editTitle, setEditTitle] = useState(project.project_name)
     const [editAuthor, setEditAuthor] = useState(project.author_name)
 
-    // const {dispatch} = useProjectContext()
+    const {dispatch} = useProjectContext()
     const navigate = useNavigate()
 
     const user = JSON.parse(localStorage.getItem('user'))
@@ -35,7 +36,7 @@ const ProjectDetails = ({project}) => {
         const response = await axios.delete(`http://localhost:4000/api/projects/${project._id}`)
         const json = await response.data
         if(response.status === 200) {
-            dispatch({type: 'DELETE_PROJECT', payload: json})
+            dispatch({type: 'DELETE_PROJECTS', payload: json})
         }
     }
 
@@ -88,7 +89,7 @@ const ProjectDetails = ({project}) => {
             value={editAuthor}
             onChange={(e) => setEditAuthor(e.target.value)}
           />
-          <button className='edit-button' oncClick={handleSubmitEdit}> Save </button>
+          <button className='edit-button' onClick={handleSubmitEdit}> Save </button>
           <button className='edit-button'onClick={handleCancelEdit}> Cancel </button>
         </div>
       )
