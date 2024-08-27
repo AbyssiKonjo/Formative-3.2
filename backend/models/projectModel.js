@@ -32,6 +32,10 @@ const projectSchema = new Schema ({
     github_profile: {
         type: String,
     },
+    user_id: {
+        type: String,
+        required: true
+    }
 
 }, {timestamps: true});
 
