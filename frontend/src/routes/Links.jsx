@@ -4,8 +4,8 @@ import Home from "../pages/home/Home"
 import Projects from "../pages/projects/Projects"
 import SingleStudentProject from "../pages/singleproject/SingleStudentProject"
 
-import Login from "../pages/login/Login"
-import Signup from "../pages/signup/Signup"
+import Login from "../pages/login-signup/Login"
+import Signup from "../pages/login-signup/Signup"
 
 const Links = () => {
   return (
