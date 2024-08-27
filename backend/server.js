@@ -17,6 +17,7 @@ app.use(cors());
 // import routes
 // -------- routes go here -------- //
 const projectRoutes = require('./routes/projects')
+const userRoutes = require('./routes/user');
 
 // Serve static files: // image upload under here
 
@@ -39,6 +40,7 @@ app.use((req, res, next) => {
 // Attach the routes to the app
 // -------- app routes go here -------- //
 app.use('/api/projects/', projectRoutes)
+app.use('/api/user', userRoutes);
 
 // Home route for the backend (url address)
 app.get('/', (req, res) => {
