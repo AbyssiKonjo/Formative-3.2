@@ -7,7 +7,7 @@ const Home = () => {
     <div className='home'>
       <h1>2402 WUX <br/> Portfolio</h1>
       <div className='button-div'>
-        <button><Link className='link' to='/projects'> View Projects </Link></button>
+        <button className='home-button'><Link className='link' to='/projects'> View Projects </Link></button>
       </div>
       
     </div>
