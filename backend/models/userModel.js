@@ -13,6 +13,14 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
+    },
+    profile_pic: {
+        type: String,
+        required: true,
+    },
+    github_profile: {
+        type: String,
+        required: true,
     }
 })
 
@@ -24,13 +32,13 @@ userSchema.statics.signup = async function (username, password) {
     }
 
     // Checking username is valid
-    if (!validator.isAlphanumeric(username) || !validator.isLength(username, { min: 0, max: 10 })) {
-        throw Error ('Username is not valid. Must be between 3 - 10 characters and contain either letters or numbers')
+    if (!validator.isAlphanumeric(username) || !validator.isLength(username, { min: 3, max: 15 })) {
+        throw Error ('Username is not valid. Must be between 3 - 15 characters and contain either letters or numbers')
     }
 
     // Checking password if it's strong
     if (!validator.isStrongPassword(password)) {
-        throw Error ('Password is not strong enough. Please make sure it contains - min 8 characters, min 1 number, min 1 symbol')
+        throw Error ('Password is not strong enough. Please make sure it contains - min 8 characters, min 1 uppercase, min 1 number, min 1 symbol')
     }
 
     // Check if username is in use
