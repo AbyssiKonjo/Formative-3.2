@@ -24,8 +24,8 @@ userSchema.statics.signup = async function (username, password) {
     }
 
     // Checking username is valid
-    if (!validator.isUsername(username)) {
-        throw Error ('Username is not valid')
+    if (!validator.isAlphanumeric(username) || !validator.isLength(username, { min: 0, max: 10 })) {
+        throw Error ('Username is not valid. Must be between 3 - 10 characters and contain either letters or numbers')
     }
 
     // Checking password if it's strong
