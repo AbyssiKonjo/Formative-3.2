@@ -2,51 +2,50 @@ import './login.scss'
 
 import { useState} from 'react'
 
-//IMPORT USE SIGNUP HERE
-
+import { useSignup } from '../../hooks/useSignup'
 
 const Signup = () => {
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  // const {signup, error, isLoading} = useSignup()
+  const {signup, error, isLoading} = useSignup()
 
-  // const handleLogin = async (e) => {
-  //   e.preventDefault()
+  const handleLogin = async (e) => {
+    e.preventDefault()
 
-  //   await signup(username, password)
-  // }
+    await signup(username, password)
+  }
 
   return (
     <div className='login-body'> 
       <div className='login-border'>
         <form 
           className='login'
-          // onClick={handleSignup}
+          onClick={handleLogin}
         >
           <h2>Signup</h2>
 
           <label htmlFor="username"> Username: </label>
           <input
             type="text" 
-            // onChange={setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value)}
             value={username}
           />
 
           <label htmlFor="password"> Password: </label>
           <input 
             type="password" 
-            // onChange={setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
 
         <div className='button-div'>
         <button
           className='login-button'
-          // disabled={isLoading}
+          disabled={isLoading}
         > Signup </button>
         </div>
-        {/* {error && <div className='error'>{error}</div>} */}
+        {error && <div className='error'>{error}</div>}
         </form>
         
       </div>
