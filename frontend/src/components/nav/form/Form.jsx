@@ -96,9 +96,6 @@ const Form = () => {
         </div>
         {error && <div className="error">{error}</div>}
 
-         <button onClick={handleSubmit}> Add Project </button>
-         {error && <div className="error">{error}</div>}
-
       </form>
     </div>
   )
