@@ -31,7 +31,7 @@ const getProject = async (req, res) => {
 // Create Project // 
 
 const createProject = async (req, res) => {
-    const { project_name, author_name, description, github_repo, vercel_link, github_profile, user_id } = req.body
+    const { project_name, author_name, author_img, description, github_repo, vercel_link, github_profile } = req.body
 
     const imageFilename = req.file ? req.file.filename : null;
 
@@ -40,12 +40,11 @@ const createProject = async (req, res) => {
             project_name,
             project_img: imageFilename,
             author_name,
-            author_img: imageFilename,
+            author_img,
             description,
             github_repo,
             vercel_link,
             github_profile,
-            user_id,
         })
         res.status(200).json(project)
     } catch (error) {

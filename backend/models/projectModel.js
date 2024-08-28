@@ -16,11 +16,10 @@ const projectSchema = new Schema ({
         type: String,
         require: true
     },
-    // author_img: {
-    //     type: String,
-    //     require: true,
-    //     default: null
-    // },
+    author_img: {
+        type: String,
+        require: true,
+    },
     description: {
         type: String,
         require: true
@@ -34,9 +33,6 @@ const projectSchema = new Schema ({
     github_profile: {
         type: String,
     },
-    user_id: {
-        type: String,
-    }
 
 }, {timestamps: true});
 

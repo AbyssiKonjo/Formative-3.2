@@ -8,26 +8,25 @@ const Form = () => {
 
   const [title, setTitle] = useState('')
   const [projectImage, setProjectImage] = useState(null)
-  const [authorName, setAuthorName] = useState('')
-  // const [authorImage, setAuthorImage] = useState(null)
   const [description, setDescription] = useState('')
   const [gitRepo, setGitRepo] = useState('')
   const [vercelLink, setVercelLink] = useState('')
-  const [gitProfile, setGitProfile] = useState('')
 
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // const user = JSON.parse(localStorage.getItem('user'))
-    // const user_id = user.username
+    const user = JSON.parse(localStorage.getItem('user'))
+    const authorName = user.username
+    const authorImage = user.profile_image
+    const gitProfile = user.github_profile
 
     const formData = new FormData()
     formData.append('project_name', title)
     formData.append('project_image', projectImage)
     formData.append('author_name', authorName)
-    // formData.append('author_image', authorImage)
+    formData.append('author_image', authorImage)
     formData.append('description', description)
     formData.append('github_repo', gitRepo)
     formData.append('vercel_link', vercelLink)
@@ -41,12 +40,9 @@ const Form = () => {
       });
       setTitle('')
       setProjectImage(null)
-      setAuthorName('')
-      // setAuthorImage(null)
       setDescription('')
       setGitRepo('')
       setVercelLink('')
-      setGitProfile('')
 
       setError(null)
 
@@ -54,11 +50,13 @@ const Form = () => {
     } catch (error) {
       setError(error.message)
     }
+    
   }
 
   return (
     <div className='form-box'>
       
+
       <form>
         <h3> Add Project </h3>
         
@@ -67,13 +65,6 @@ const Form = () => {
           type="text" 
           onChange={(e) => setTitle(e.target.value)}
           value={title}
-        />
-
-        <label htmlFor="title"> Project Creator: </label>
-        <input 
-          type="text" 
-          onChange={(e) => setAuthorName(e.target.value)}
-          value={authorName}
         />
 
         <label htmlFor="title"> Description: </label>
@@ -97,23 +88,15 @@ const Form = () => {
           value={vercelLink}
         />
 
-        <label htmlFor="title"> Git Profile: </label>
-        <input 
-          type="text" 
-          onChange={(e) => setGitProfile(e.target.value)}
-          value={gitProfile}
-        />
 
         <label>Upload Project Image:</label>
         <input type='file' accept='image/*' onChange={(e) => setProjectImage(e.target.files[0])} />
-
-         {/* <label>Upload Profile Image:</label>
-         <input type='file' accept='image/*' onChange={(e) => setAuthorImage(e.target.files[0])} /> */}
 
         <div className='button-div'>
           <button className='add-project-button' onClick={handleSubmit}> Add Project </button>
         </div>
         {error && <div className="error">{error}</div>}
+
       </form>
     </div>
   )
