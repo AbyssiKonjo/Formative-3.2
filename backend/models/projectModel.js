@@ -9,16 +9,18 @@ const projectSchema = new Schema ({
     },
     project_img: {
         type: String,
-        require: true
+        require: true,
+        default: null
     },
     author_name: {
         type: String,
         require: true
     },
-    author_img: {
-        type: String,
-        require: true
-    },
+    // author_img: {
+    //     type: String,
+    //     require: true,
+    //     default: null
+    // },
     description: {
         type: String,
         require: true
@@ -34,7 +36,6 @@ const projectSchema = new Schema ({
     },
     user_id: {
         type: String,
-        required: true
     }
 
 }, {timestamps: true});

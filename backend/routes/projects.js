@@ -36,7 +36,7 @@ router.get('/', getProjects);
 router.get('/:id', getProject); 
 
 // Upload Image
-router.post('/', upload.single('image'), createProject);
+router.post('/', upload.single('project_image'), createProject);
 
 // Create Project
 router.post('/', createProject);
