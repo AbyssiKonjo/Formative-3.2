@@ -56,7 +56,8 @@ const Form = () => {
   return (
     <div className='form-box'>
       
-      <form >
+
+      <form>
         <h3> Add Project </h3>
         
         <label htmlFor="title"> Project Name: </label>
@@ -88,11 +89,14 @@ const Form = () => {
         />
 
 
-       <label>Upload Project Image:</label>
-         <input type='file' accept='image/*' onChange={(e) => setProjectImage(e.target.files[0])} />
+        <label>Upload Project Image:</label>
+        <input type='file' accept='image/*' onChange={(e) => setProjectImage(e.target.files[0])} />
 
-         <button onClick={handleSubmit}> Add Project </button>
-         {error && <div className="error">{error}</div>}
+        <div className='button-div'>
+          <button className='add-project-button' onClick={handleSubmit}> Add Project </button>
+        </div>
+        {error && <div className="error">{error}</div>}
+
       </form>
     </div>
   )
