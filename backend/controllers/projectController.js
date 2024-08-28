@@ -5,9 +5,20 @@ const mongoose = require('mongoose')
 // Get Project/s
 
 const getProjects = async (req, res) => {
-    const projects = await Project.find({}).sort({createdAt: -1})
-    res.status(200).json(projects)
-}
+
+    try {
+        const projects = await Project.find({}).populate({
+            path: 'comments',
+            model: 'Comment'
+        }).sort({ createdAt: -1});
+        
+        res.status(200).json(projects);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error: 'Internal server error'});
+    }
+};
 
 // Get Single Project // 
 
@@ -15,18 +26,26 @@ const getProject = async (req, res) => {
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: 'No Such Project'})
+        return res.status(404).json({error: 'No Such Project: Id Invalid'})
     }
 
-    const project = await Project.findById(id)
+    try {
+        const project = await Project.findById(id).populate({
+            path: 'comments',
+            model: 'Comment'
+        });
 
     if(!project) {
-        return res.status(404).json({error: 'No such Project'})
+        return res.status(404).json({error: 'No such Project: Project does not exist'});
     }
 
-    res.status(200).json(project)
-
-}
+    res.status(200).json(project);
+    
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error'});
+    }
+};
 
 // Create Project // 
 

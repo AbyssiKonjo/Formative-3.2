@@ -35,7 +35,13 @@ const projectSchema = new Schema ({
     user_id: {
         type: String,
         required: true
-    }
+    },
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comment',
+        },
+    ]
 
 }, {timestamps: true});
 

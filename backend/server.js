@@ -18,6 +18,7 @@ app.use(cors());
 // -------- routes go here -------- //
 const projectRoutes = require('./routes/projects')
 const userRoutes = require('./routes/user');
+const commentRoutes = require('./routes/comments')
 
 // Serve static files: // image upload under here
 
@@ -39,8 +40,9 @@ app.use((req, res, next) => {
 
 // Attach the routes to the app
 // -------- app routes go here -------- //
-app.use('/api/projects/', projectRoutes)
+app.use('/api/projects/', projectRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/comments', commentRoutes);
 // Multer static files - from public/uploads
 app.use('/public/uploads', express.static('public/uploads'));
 
