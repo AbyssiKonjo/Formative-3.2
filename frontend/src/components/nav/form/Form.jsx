@@ -55,7 +55,6 @@ const Form = () => {
 
   return (
     <div className='form-box'>
-      
 
       <form>
         <h3> Add Project </h3>
@@ -96,6 +95,9 @@ const Form = () => {
           <button className='add-project-button' onClick={handleSubmit}> Add Project </button>
         </div>
         {error && <div className="error">{error}</div>}
+
+         <button onClick={handleSubmit}> Add Project </button>
+         {error && <div className="error">{error}</div>}
 
       </form>
     </div>

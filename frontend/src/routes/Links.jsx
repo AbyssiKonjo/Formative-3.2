@@ -15,6 +15,10 @@ const Links = () => {
         <Route path='/projects' element={<Projects/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
+
+        {/* ADD TO ALL ROUTES SO YOU HAVE TO BE LOGIN IN TO VIEW */}
+        {/* element={user ? <SingleStudentProject/> : <Navigate to="/login"/>}/> */}
+
     </Routes>
   )
 }
