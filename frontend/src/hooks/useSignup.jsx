@@ -2,21 +2,25 @@ import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import axios from "axios";
 
-const baseURL = import.meta.env.VITE_API_BASE_URL
-
 export const useSignup = () => {
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
     const {dispatch} = useAuthContext()
 
-    const signup = async (username, password) => {
+
+    const signup = async (formData) => {
         setIsLoading(true)
         setError(null)
 
         try {
-            const response = await axios.post(`${baseURL}/api/user/signup`,
-                {username, password},
-                {headers: {'Content-Type': 'application/json'}}
+
+            if (!(formData instanceof FormData)) {
+                throw new Error("Invalid form data");
+            }
+
+            const response = await axios.post(`http://localhost:4000/api/user/signup`,
+                formData,
+                {headers: {'Content-Type': 'multipart/form-data'}}
             );
 
             if (response.status !== 200) {
@@ -29,9 +33,10 @@ export const useSignup = () => {
                 localStorage.setItem('user', JSON.stringify(response.data))
                 // Update auth context state
                 dispatch({type: 'LOGIN', payload: response.data})
-
+                
                 setIsLoading(false)
             }
+
         } catch (error) {
             console.log(error.response.data.error);
             setError(error.response.data.error)

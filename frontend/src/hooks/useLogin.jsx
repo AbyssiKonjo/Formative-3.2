@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 import axios from "axios";
 
-const baseURL = import.meta.env.VITE_API_BASE_URL
-
 export const useLogin = () => {
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(null)
@@ -14,7 +12,7 @@ export const useLogin = () => {
         setError(null)
 
         try {
-            const response = await axios.post(`${baseURL}/api/user/login`,
+            const response = await axios.post(`http://localhost:4000/api/user/login`,
                 {username, password},
                 {headers: {'Content-Type': 'application/json'}}
             );

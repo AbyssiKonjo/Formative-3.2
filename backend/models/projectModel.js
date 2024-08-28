@@ -9,7 +9,8 @@ const projectSchema = new Schema ({
     },
     project_img: {
         type: String,
-        require: true
+        require: true,
+        default: null
     },
     author_name: {
         type: String,
@@ -17,7 +18,7 @@ const projectSchema = new Schema ({
     },
     author_img: {
         type: String,
-        require: true
+        require: true,
     },
     description: {
         type: String,
@@ -32,16 +33,14 @@ const projectSchema = new Schema ({
     github_profile: {
         type: String,
     },
-    user_id: {
-        type: String,
-        required: true
-    },
+
     comments: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Comment',
         },
     ]
+
 
 }, {timestamps: true});
 
