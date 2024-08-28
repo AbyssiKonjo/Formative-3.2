@@ -29,6 +29,7 @@ const ProjectDetails = ({project}) => {
     const handleNavigate = () => {
         let path = `/${project._id}`
         navigate(path)
+
     }
 
     //handle delete

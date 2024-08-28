@@ -6,8 +6,12 @@ const SingleStudentProject = () => {
   const navigate = useNavigate()
   return (
     <div className='single-page-project'>
-      <button onClick={()=>navigate(-1)}>Go Back</button>
-      <h1>Student Project</h1>
+
+      <div className='button-div'>
+        <button className='back-button' onClick={()=>navigate(-1)}>Go Back</button>
+      </div>
+
+      <h2>Student Project</h2>
     </div>
   )
 }

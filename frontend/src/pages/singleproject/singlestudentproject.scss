@@ -1,8 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap');
+
 .single-page-project{
 
-    padding-top: 500px;
+    padding-top: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: black;
 }
+
+h2 {
+    text-align: center;
+    font-size: 5em;
+    font-family: 'Gluten', cursive;
+    font-weight: 600;
+    background: -webkit-linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+}
+
+.button-div {
+    position: relative;
+    right: 45%;
+    background-color: rgb(255, 255, 255);
+    padding: 2.5px;
+}
+
+.button-div:hover {
+    background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+}
+
+.back-button {
+    padding: 6px 9px;
+    border: none;
+    background-color: black;
+    font-size: .75em;
+    color: white;
+}
+
