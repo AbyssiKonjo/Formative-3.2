@@ -1,5 +1,13 @@
-.form {
-    background-color: blue;
-    width: 100px;
-    height: 100px;
+.form-box {
+    background-color: rgb(117, 117, 128);
+    position: fixed;
+    top: 50px;
+    right: 0;
+    padding: 30px;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
 }

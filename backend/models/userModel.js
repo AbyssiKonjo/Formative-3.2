@@ -13,16 +13,6 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
-    },
-    profile_pic: {
-        type: String,
-        required: true,
-        default: null
-    },
-    github_profile: {
-        type: String,
-        required: true,
-        default: null
     }
 })
 
