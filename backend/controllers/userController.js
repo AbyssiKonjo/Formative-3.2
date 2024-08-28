@@ -9,11 +9,18 @@ const createToken = (_id) => {
 
 // Sign up
 const signupUser = async (req,res) => {
-    const {username, password} = req.body;
+    const {username, password, github_profile} = req.body;
+
+    const profile_image = req.file ? req.file.filename : null;
 
     try {
         // Sign up Method created in userModel
-        const user = await User.signup(username, password)
+        const user = await User.signup(
+            username, 
+            password,
+            github_profile,
+            profile_image,
+        )
 
         // Create token
         const token = createToken(user._id)
