@@ -12,6 +12,9 @@ const SingleStudentProject = () => {
       </div>
 
       <h2>Student Project</h2>
+      {/* <p>{project.author_name}</p>
+      <h3>{project.project_name}</h3> */}
+
     </div>
   )
 }

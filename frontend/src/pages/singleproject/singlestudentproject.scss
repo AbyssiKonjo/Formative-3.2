@@ -8,6 +8,25 @@
     align-items: center;
     justify-content: center;
     background-color: black;
+
+    .button-div {
+        position: relative;
+        right: 45%;
+        background-color: rgb(255, 255, 255);
+        padding: 5px;
+    }
+    
+    .button-div:hover {
+        background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+    }
+    
+    .back-button {
+        padding: 6px 9px;
+        border: none;
+        background-color: black;
+        font-size: .75em;
+        color: white;
+    }
 }
 
 h2 {
@@ -20,22 +39,4 @@ h2 {
         -webkit-text-fill-color: transparent;
 }
 
-.button-div {
-    position: relative;
-    right: 45%;
-    background-color: rgb(255, 255, 255);
-    padding: 2.5px;
-}
-
-.button-div:hover {
-    background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
-}
-
-.back-button {
-    padding: 6px 9px;
-    border: none;
-    background-color: black;
-    font-size: .75em;
-    color: white;
-}
 
