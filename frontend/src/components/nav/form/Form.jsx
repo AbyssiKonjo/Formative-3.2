@@ -59,7 +59,7 @@ const Form = () => {
   return (
     <div className='form-box'>
       
-      <form onClick={handleSubmit}>
+      <form>
         <h3> Add Project </h3>
         
         <label htmlFor="title"> Project Name: </label>
@@ -110,7 +110,7 @@ const Form = () => {
          {/* <label>Upload Profile Image:</label>
          <input type='file' accept='image/*' onChange={(e) => setAuthorImage(e.target.files[0])} /> */}
 
-         <button > Add Project </button>
+         <button onClick={handleSubmit}> Add Project </button>
          {error && <div className="error">{error}</div>}
       </form>
     </div>
