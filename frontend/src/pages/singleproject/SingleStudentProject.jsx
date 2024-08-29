@@ -22,7 +22,11 @@ const SingleStudentProject = () => {
       </div>
 
       <div className='single-page-card'>
-        <div className='overlay'>
+        <div className='left-overlay'>
+          <p>{project.author_name}</p>
+          <h3>{project.project_name}</h3>
+        </div>
+        <div className='right-overlay'>
           <p>{project.author_name}</p>
           <h3>{project.project_name}</h3>
         </div>
