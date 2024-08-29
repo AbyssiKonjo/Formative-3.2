@@ -23,7 +23,7 @@ const App = () => {
         {/* <Route path='/projects' element={user ? <Projects/> : <Navigate to="/projects"/>}/> */}
         <Route path='/login' element={!user ? <Login/> : <Navigate to="/"/>}/>
         <Route path='/signup' element={!user ? <Signup/> : <Navigate to="/"/>}/>
-        <Route path='/singlestudentproject' element={<SingleStudentProject/>}/>
+        <Route path='/:id' element={<SingleStudentProject/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>
