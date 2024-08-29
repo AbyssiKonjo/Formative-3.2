@@ -1,17 +1,17 @@
 .projects-page{
-    width: 100%;
-    height:100%;
-    padding-top: 100px;
-    background-color: black;
-    padding-bottom: 50px;
-    
+
+    padding-top: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 10%;
+    }
 }
 
-.projects {
-    padding: 0px 100px;
-    border: solid 1px red;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.projects-page {
+    h3 {
+        cursor: pointer;
+    }
 }
