@@ -21,7 +21,6 @@ const Login = () => {
       <div className='login-border'>
         <form 
           className='login'
-          onClick={handleLogin}
         >
           <h2>Login</h2>
 
@@ -43,6 +42,7 @@ const Login = () => {
         <button
           className='login-button'
           disabled={isLoading}
+          onClick={handleLogin}
         > Login </button>
         </div>
         {error && <div className='error'>{error}</div>}

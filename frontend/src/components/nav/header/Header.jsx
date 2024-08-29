@@ -23,11 +23,11 @@ const Header = () => {
     return (
         <>
             <div className='header'>
-                {user && <div>
+                {user && <div className='logout-div'>
                     <img src={`http://localhost:4000/public/uploads/${user.profileImg}`}/>
                 
-                    <span>{user.username}</span>
-                    <button onClick={handleClick}>Logout</button>
+                    <span className='nav-username'>{user.username}</span>
+                    <div className='logout-button' onClick={handleClick}>Logout</div>
                 </div>}
 
                 {!user && <div className='user-actions'>
