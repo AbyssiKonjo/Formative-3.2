@@ -25,7 +25,8 @@ const ProjectDetails = ({project}) => {
     const navigate = useNavigate()
 
     const user = JSON.parse(localStorage.getItem('user'))
-    const user_id = user.username
+    const user_id = user ? user.username : null;
+
 
     //handle navigate
     const handleNavigate = () => {
