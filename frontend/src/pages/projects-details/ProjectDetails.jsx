@@ -6,8 +6,6 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 //Import context here
 import { useProjectContext } from '../../hooks/useProjectContext'
 
-import './projectdetails.scss'
-
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
@@ -31,7 +29,6 @@ const ProjectDetails = ({project}) => {
     const handleNavigate = () => {
         let path = `/${project._id}`
         navigate(path)
-
     }
 
     //handle delete
@@ -101,11 +98,11 @@ const ProjectDetails = ({project}) => {
         <>
             <div className='whole-card-border'>
                 <div className='card'>
-                    <div className='project-img-div'>
-                        <img className='project-img' src={`http://localhost:4000/public/uploads/${project.project_img}`} alt="Project" />
+                    <div className='project-img'>
+                        <img src={`http://localhost:4000/public/uploads/${project.project_img}`} alt="Project" />
                     </div>
                     <div className='card-info'>
-                        <h3 className='title-link' onClick={handleNavigate}>{project.project_name}</h3>
+                        <h3 onClick={handleNavigate}>{project.project_name}</h3>
                         <p>{project.author_name}</p>
                         <p>
                             Created&nbsp; 
@@ -125,8 +122,7 @@ const ProjectDetails = ({project}) => {
                             <MdEdit className='edit'onClick={handleEdit}/>
                             <MdDelete className='delete'onClick={handleDelete}/>
                         </>
-                     )  
-                    }
+                    ) }
 
 
                     
