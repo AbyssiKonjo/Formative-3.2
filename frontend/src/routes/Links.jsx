@@ -11,7 +11,7 @@ const Links = () => {
   return (
     <Routes>
         <Route exact path='/' element={<Home/>}/>
-        <Route path='/project/:id' element={<SingleStudentProject/>}/>
+        <Route path='/:id' element={<SingleStudentProject/>}/>
         <Route path='/projects' element={<Projects/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
