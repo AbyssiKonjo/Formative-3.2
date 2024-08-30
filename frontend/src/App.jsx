@@ -20,7 +20,6 @@ const App = () => {
       <Routes>
         <Route exact path='/' element={<Home/>}/>
         <Route path='/projects' element={<Projects/>}/>
-        {/* <Route path='/projects' element={user ? <Projects/> : <Navigate to="/projects"/>}/> */}
         <Route path='/login' element={!user ? <Login/> : <Navigate to="/"/>}/>
         <Route path='/signup' element={!user ? <Signup/> : <Navigate to="/"/>}/>
         <Route path='/:id' element={<SingleStudentProject/>}/>

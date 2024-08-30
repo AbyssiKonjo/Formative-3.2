@@ -15,7 +15,12 @@ const Form = () => {
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
+    if (!title || !description || !projectImage) {
+      setError('* Please fill in all required fields.');
+      return;
+    }
 
     const user = JSON.parse(localStorage.getItem('user'))
     const authorName = user.username
@@ -59,18 +64,20 @@ const Form = () => {
       <form>
         <h3> Add Project </h3>
         
-        <label htmlFor="title"> Project Name: </label>
+        <label htmlFor="title"> Project Name:<span>*</span> </label>
         <input 
           type="text" 
           onChange={(e) => setTitle(e.target.value)}
           value={title}
+          required
         />
 
-        <label htmlFor="title"> Description: </label>
+        <label htmlFor="title"> Description:<span>*</span> </label>
         <input 
           type="text" 
           onChange={(e) => setDescription(e.target.value)}
           value={description}
+          required
         />
 
         <label htmlFor="title"> Git Repo: </label>
@@ -88,8 +95,8 @@ const Form = () => {
         />
 
 
-        <label>Upload Project Image:</label>
-        <input type='file' accept='image/*' onChange={(e) => setProjectImage(e.target.files[0])} />
+        <label>Upload Project Image:<span>*</span></label>
+        <input type='file' accept='image/*' onChange={(e) => setProjectImage(e.target.files[0])} required/>
 
         <div className='button-div'>
           <button className='add-project-button' onClick={handleSubmit}> Add Project </button>
