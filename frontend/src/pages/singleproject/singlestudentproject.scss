@@ -42,6 +42,7 @@ h2 {
 }
 
 .single-page-card {
+    position: relative;
     display: flex;
     border-radius: 60px;
     margin-top: 50px;
@@ -56,7 +57,7 @@ h2 {
     justify-content: center;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    padding: 10px;
+    padding: 20px;
     width: 40%;
     background: rgb(255, 255, 255);
 
@@ -65,11 +66,13 @@ h2 {
 .right-overlay {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-    padding: 10px;
+    padding: 20px;
+    padding-left: 40px;
     width: 60%;
     background: rgba(0, 0, 0);
 
     p{
+        font-family: "DM Sans", sans-serif;
         color: white;
     }
 
@@ -77,18 +80,49 @@ h2 {
         font-family: 'Gluten', cursive;
         font-weight: 600;
         color: white;
-        font-size: 1.5em;
+        font-size: 2.2em;
     }
 
     h4 {
         font-family: "DM Sans", sans-serif;
         color: white;
-        font-size: 1em;
-        font-weight: 500;
+        font-size: 1.1em;
+        font-weight: 800;
     }
 }
 
 .single-page-project-image {
     object-fit: cover;
     width: 100%;
+}
+
+.profile-pic-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 56.1%;
+    top: 50%;
+    background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+    border-radius: 100px;
+    height: 80px;
+    width: 80px;
+    transform: translate(0,0);
+
+    img {
+        object-fit: cover;
+        background-color: black;
+        border-radius: 100px;
+        height: 70px;
+        width: 70px;
+    }
+}
+
+.github {
+    background: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: yellow;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
 }
