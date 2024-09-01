@@ -98,7 +98,7 @@ const Form = () => {
         <label>Upload Project Image:<span>*</span></label>
         <input type='file' accept='image/*' onChange={(e) => setProjectImage(e.target.files[0])} required/>
 
-        <div className='button-div'>
+        <div className='form-button-div'>
           <button className='add-project-button' onClick={handleSubmit}> Add Project </button>
         </div>
         {error && <div className="error">{error}</div>}
