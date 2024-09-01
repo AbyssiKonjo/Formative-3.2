@@ -10,6 +10,7 @@ const Form = () => {
   const [projectImage, setProjectImage] = useState(null)
   const [description, setDescription] = useState('')
   const [gitRepo, setGitRepo] = useState('')
+  const [gitProfile, setGitProfile] =useState('')
   const [vercelLink, setVercelLink] = useState('')
 
   const [error, setError] = useState(null)
@@ -47,6 +48,7 @@ const Form = () => {
       setProjectImage(null)
       setDescription('')
       setGitRepo('')
+      setGitProfile('')
       setVercelLink('')
 
       setError(null)
@@ -72,11 +74,21 @@ const Form = () => {
           required
         />
 
+
+
         <label htmlFor="title"> Description:<span>*</span> </label>
         <input 
           type="text" 
           onChange={(e) => setDescription(e.target.value)}
           value={description}
+          required
+        />
+
+        <label htmlFor="github_profile"> Github Profile: </label>
+        <input 
+          type="text" 
+          onChange={(e) => setGitProfile(e.target.value)}
+          value={gitProfile}
           required
         />
 
