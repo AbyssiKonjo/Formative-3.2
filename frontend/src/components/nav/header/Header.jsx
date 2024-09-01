@@ -11,6 +11,8 @@ const Header = () => {
 
     const [formIsOpen, openForm] = useState(false)
 
+    
+
     const handleClick = () => {
         logout()
     }
@@ -24,7 +26,7 @@ const Header = () => {
         <>
             <div className='header'>
                 {user && <div className='logout-div'>
-                    <img src={`http://localhost:4000/public/uploads/${user.profileImg}`}/>
+                    <img src={`http://localhost:4000/public/uploads/${user.profile_image}`}/>
                 
                     <span className='nav-username'>{user.username}</span>
                     <div className='logout-button' onClick={handleClick}>Logout</div>
