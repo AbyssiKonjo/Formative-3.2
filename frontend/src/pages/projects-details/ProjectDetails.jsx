@@ -133,9 +133,7 @@ const ProjectDetails = ({project}) => {
                         </p>
                     </div>
                     <div className='profile-border'>
-                        <div className='profile-img'>
-                        <img src={`http://localhost:4000/public/profile/${user.profile_image}`} alt="Profile Pic" />
-                        </div>
+                       
                     </div>
                     {project.author_name === user_id &&(
                         <>

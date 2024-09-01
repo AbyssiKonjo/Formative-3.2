@@ -15,10 +15,6 @@ const projectSchema = new Schema ({
         type: String,
         require: true
     },
-    author_img: {
-        type: String,
-        require: true,
-    },
     description: {
         type: String,
         require: true
