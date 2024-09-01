@@ -8,6 +8,8 @@ import { useProjectContext } from '../../hooks/useProjectContext'
 
 import './projectdetails.scss'
 
+import { FaArrowRight } from "react-icons/fa";
+
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 
@@ -81,21 +83,30 @@ const ProjectDetails = ({project}) => {
     <div className='project-details'>
       {isEditing ? (
         <div className='edit-project'>
-        <label>Edit Project Title:</label>
-          <input
-            type="text"
-            value={editTitle}
-            onChange={(e) => setEditTitle(e.target.value)}
-          />
+            <div className='edit-form'>
+                <label>Edit Project Title:</label>
+                <input
+                    type="text"
+                    value={editTitle}
+                    onChange={(e) => setEditTitle(e.target.value)}
+                />
 
-          <label>Edit Project Author</label>
-          <input
-            type="text"
-            value={editAuthor}
-            onChange={(e) => setEditAuthor(e.target.value)}
-          />
-          <button className='edit-button' onClick={handleSubmitEdit}> Save </button>
-          <button className='edit-button'onClick={handleCancelEdit}> Cancel </button>
+                <label>Edit Project Author:</label>
+                <input
+                    type="text"
+                    value={editAuthor}
+                    onChange={(e) => setEditAuthor(e.target.value)}
+                />
+                <div className='edit-buttons'>
+                    <div className='edit-button-border'>
+                        <button className='edit-button' onClick={handleSubmitEdit}> Save </button>
+                    </div>
+                    <div className='edit-button-border'>
+                        <button className='edit-button'onClick={handleCancelEdit}> Cancel </button>
+                    </div>
+                </div>
+                
+            </div>
         </div>
       )
       : //if not editing
@@ -107,7 +118,11 @@ const ProjectDetails = ({project}) => {
                         <img className='project-img' src={`http://localhost:4000/public/uploads/${project.project_img}`} alt="Project" />
                     </div>
                     <div className='card-info'>
-                        <h3 className='title-link' onClick={handleNavigate}>{project.project_name}</h3>
+                        <div className="project-header">
+                        <h3 className='title-link' onClick={handleNavigate}>{project.project_name} </h3>
+                        <FaArrowRight className='arrow' />
+                        </div>
+                        
                         <p>{project.author_name}</p>
                         <p>
                             Created&nbsp; 

@@ -44,7 +44,7 @@ const Signup = () => {
           className='login'
           
         >
-          <h2>Signup</h2>
+          <h2 className='login-header'>Signup</h2>
 
           <label htmlFor="username"> Username: </label>
           <input

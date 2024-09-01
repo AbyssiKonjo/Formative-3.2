@@ -22,7 +22,7 @@ const Login = () => {
         <form 
           className='login'
         >
-          <h2>Login</h2>
+          <h2 className='login-header'>Login</h2>
 
           <label htmlFor="username"> Username: </label>
           <input
