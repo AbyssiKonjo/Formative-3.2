@@ -9,32 +9,13 @@ const Signup = () => {
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [gitProfile, setGitProfile] = useState('')
-
-  const [profileImg, setProfileImg] = useState(null)
-
   const {signup, error, isLoading} = useSignup()
 
   const handleLogin = async (e) => {
     e.preventDefault()
 
-    const formData = new FormData()
-    formData.append('username', username)
-    formData.append('password', password)
-    formData.append('github_profile', gitProfile)
-    formData.append('profile_image', profileImg)
-
-    console.log(username, password, gitProfile, profileImg)
-
-    for (let pair of formData.entries()) {
-      console.log(pair[0] + ': ' + pair[1]);
-  }
-
-    await signup(formData)
-
-    setUsername('')
-    setPassword('')
-    setGitProfile('')
+    await signup(username, password)
+   
   }
 
   return (
@@ -59,16 +40,6 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
-
-          <label htmlFor="gitProfile"> Github Profile: </label>
-          <input 
-            type="text" 
-            onChange={(e) => setGitProfile(e.target.value)}
-            value={gitProfile}
-          />
-
-          <label>Upload Profile Image:</label>
-          <input type='file' accept='image/*' onChange={(e) => setProfileImg(e.target.files[0])} />
 
         <div className='button-div'>
         <button

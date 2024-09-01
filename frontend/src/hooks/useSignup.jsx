@@ -8,21 +8,18 @@ export const useSignup = () => {
     const {dispatch} = useAuthContext()
 
 
-    const signup = async (formData) => {
+    const signup = async (username, password) => {
         setIsLoading(true)
         setError(null)
 
         try {
 
-            if (!(formData instanceof FormData)) {
-                throw new Error("Invalid form data");
-            }
-
-            const response = await axios.post(`http://localhost:4000/api/user/signup`,
-                formData,
-                {headers: {'Content-Type': 'multipart/form-data'}}
+            const response = await axios.post(`http://localhost:4000/api/user/login`,
+                {username, password},
+                {headers: {'Content-Type': 'application/json'}}
             );
 
+        
             if (response.status !== 200) {
                 setIsLoading(false)
                 setError(error.response.data.error)
