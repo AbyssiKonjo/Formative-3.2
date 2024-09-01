@@ -26,6 +26,7 @@ const ProjectDetails = ({project}) => {
 
     const user = JSON.parse(localStorage.getItem('user'))
     const user_id = user ? user.username : null;
+    const profile_pic = user ? user.profile_image : null;
 
 
     //handle navigate
@@ -118,10 +119,10 @@ const ProjectDetails = ({project}) => {
                     </div>
                     <div className='profile-border'>
                         <div className='profile-img'>
-                        <img src={`http://localhost:4000/public/uploads/${project.author_img}`} alt="Profile Pic" />
+                        <img src={`http://localhost:4000/public/profile/${user.profile_image}`} alt="Profile Pic" />
                         </div>
                     </div>
-                    {project.user_id === user_id &&(
+                    {project.author_name === user_id &&(
                         <>
                             <MdEdit className='edit'onClick={handleEdit}/>
                             <MdDelete className='delete'onClick={handleDelete}/>

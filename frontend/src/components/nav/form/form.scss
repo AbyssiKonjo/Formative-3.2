@@ -1,5 +1,4 @@
 .form-box {
-    // background-color: rgb(117, 117, 128);
     background-color: rgb(255, 255, 255);
     position: fixed;
     top: 50px;
@@ -32,6 +31,7 @@
 form {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .form-box h3 {
@@ -51,19 +51,22 @@ form {
     padding: 5px;
 }
 
-.form-box .button-div {
-    background-color: rgb(255, 255, 255);
-    padding: 5px;
-}
+
+
 .add-project-button {
     padding: 12px 18px;
     border: none;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     font-size: 1.5em;
     width: 100%;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
-.button-div:hover {
+.form-button-div {
+    padding: 5px;
+    background-color: black;
+}
+
+.form-button-div:hover {
     background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
 }

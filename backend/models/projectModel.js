@@ -9,7 +9,6 @@ const projectSchema = new Schema ({
     },
     project_img: {
         type: String,
-        require: true,
         default: null
     },
     author_name: {

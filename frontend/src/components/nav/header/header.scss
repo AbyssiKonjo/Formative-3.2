@@ -2,6 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -114,6 +115,9 @@
     display: inline-block;
     position: relative;
     transition: transform 0.25s ease-out;
+    & svg {
+        font-size: 2.5em;
+    }
 }
 
 .form-button:hover {

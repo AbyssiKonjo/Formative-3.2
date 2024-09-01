@@ -31,6 +31,10 @@ const Signup = () => {
   }
 
     await signup(formData)
+
+    setUsername('')
+    setPassword('')
+    setGitProfile('')
   }
 
   return (

@@ -3,6 +3,8 @@ import Form from '../form/Form'
 import { Link } from 'react-router-dom'
 import { useLogout } from '../../../hooks/useLogout'
 import { useAuthContext } from '../../../hooks/useAuthContext'
+import { X } from "react-bootstrap-icons"
+
 import './header.scss'
 
 const Header = () => {
@@ -10,6 +12,8 @@ const Header = () => {
     const {user} = useAuthContext()
 
     const [formIsOpen, openForm] = useState(false)
+
+    
 
     const handleClick = () => {
         logout()
@@ -24,7 +28,7 @@ const Header = () => {
         <>
             <div className='header'>
                 {user && <div className='logout-div'>
-                    <img src={`http://localhost:4000/public/uploads/${user.profileImg}`}/>
+                    <img src={`http://localhost:4000/public/uploads/${user.profile_image}`}/>
                 
                     <span className='nav-username'>{user.username}</span>
                     <div className='logout-button' onClick={handleClick}>Logout</div>
@@ -39,7 +43,9 @@ const Header = () => {
                     <Link className='nav-link' to='/'> Home </Link>
                     <Link className='nav-link' to='/projects'> Projects </Link>
                 </div>
-                {user && <div className='form-button' onClick={toggleForm}> Add Project </div>}
+                {user && (<div className='form-button' onClick={toggleForm}>
+                    {formIsOpen ? <X/> : 'Add Project'}
+                </div>)}
             </div>
 
             {formIsOpen && <Form closeMethod={toggleForm}/>}
