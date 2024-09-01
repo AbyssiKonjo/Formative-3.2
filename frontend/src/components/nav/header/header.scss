@@ -70,6 +70,35 @@
 
 .logout-div{
     display: flex;
+    align-items: center;
+    .profile-avatar {
+        margin-right: 15px;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        &::before {
+            content: "";
+            width: 85%;
+            height: 85%;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+        & span {
+            position: relative;
+            z-index: 2;
+            font-size: 1em;
+            background: -webkit-linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
 }
 
 .logout-button {

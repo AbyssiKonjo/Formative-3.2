@@ -28,8 +28,11 @@ const Header = () => {
         <>
             <div className='header'>
                 {user && <div className='logout-div'>
-                    <img src={`http://localhost:4000/public/uploads/${user.profile_image}`}/>
-                
+                    {/* <img src={`http://localhost:4000/public/uploads/${user.profile_image}`}/> */}
+                    <div className='profile-avatar'>
+                       <span>{user.username.charAt(0).toUpperCase()}</span> 
+                    </div>
+                    
                     <span className='nav-username'>{user.username}</span>
                     <div className='logout-button' onClick={handleClick}>Logout</div>
                 </div>}
