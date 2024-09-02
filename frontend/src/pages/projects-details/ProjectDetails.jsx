@@ -29,7 +29,6 @@ const ProjectDetails = ({project}) => {
     const user = JSON.parse(localStorage.getItem('user'))
     const user_id = user ? user.username : null;
 
-
     //handle navigate
     const handleNavigate = () => {
         let path = `/${project._id}`
@@ -131,9 +130,11 @@ const ProjectDetails = ({project}) => {
                             ago
                         </p>
                     </div>
-                    <div className='profile-border'>
-                       
+                    <div className='project-profile-avatar'>
+                        <span>{project.author_name.charAt(0).toUpperCase()}</span> 
+
                     </div>
+
                     {project.author_name === user_id &&(
                         <>
                             <MdEdit className='edit'onClick={handleEdit}/>

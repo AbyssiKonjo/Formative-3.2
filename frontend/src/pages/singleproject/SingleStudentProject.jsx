@@ -78,7 +78,6 @@ const SingleStudentProject = () => {
           </div>
 
         </div>
-
       </div>
 
     </div>
