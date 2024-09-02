@@ -1,6 +1,8 @@
-import React from 'react'
+import {useState} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios'
 import './singlestudentproject.scss'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import { useProjectContext } from '../../hooks/useProjectContext'
 import { FaGithub } from "react-icons/fa";
 import { IoLogoVercel } from "react-icons/io5";
@@ -10,12 +12,45 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 const SingleStudentProject = () => {
   const navigate = useNavigate()
   const { id } = useParams()
-  const {projects} = useProjectContext()
+  const {projects, dispatch} = useProjectContext()
+
+  const [commentText, setCommentText] = useState('')
+  const [showComments, setShowComments] = useState(false);
 
   const user = JSON.parse(localStorage.getItem('user'))
-  console.log(user); 
 
-  const project = projects.find(proj => proj._id === id)
+  const githubProfile = user.github_profile;
+
+
+  if (!projects) {
+    return <p>Loading...</p>;
+  }
+  
+  const project = projects.find(proj => proj._id === id);
+
+  const handleAddComment = async () => {
+    try {
+        const response = await axios.post(
+            `http://localhost:4000/api/comments/projects/${project._id}/comments`,
+            {
+                text: commentText,
+                user_id: user.username,
+            }
+        );
+
+        if (response.status === 201) {
+            const newComment = response.data;
+            const updatedComments = [...project.comments, newComment];
+            const updatedProject = { ...project, comments: updatedComments };
+
+            dispatch({ type: 'UPDATE_PROJECT', payload: updatedProject });
+
+            setCommentText('');
+        }
+    } catch (error) {
+        console.error('Error Adding Comment: ', error);
+    }
+};
 
   return (
     <div className='single-page-project'>
@@ -80,7 +115,43 @@ const SingleStudentProject = () => {
         </div>
       </div>
 
+      <div className='show-hide-button-div'>
+      <button className='show-hide-button' onClick={() => {
+          setShowComments(!showComments) 
+          console.log(project.comments[0])}}>
+          {showComments ? 'Hide Comments' : 'Show Comments'}
+        </button>
+      </div>
+
+          {showComments&& (
+            <>
+            <div className='comments'>
+              {project.comments.map((comment) => (
+                <div key={comment._id} className='comment'>
+                  <h5>{project.author_name}</h5>
+                  <p>{comment.text}</p>
+                  <span>Posted: {formatDistanceToNow(new Date(comment.createdAt), {
+                    includeSeconds: true,
+                  })}{''} ago</span>
+                </div>
+
+              ))}
+            </div>
+            <div className='add-comment'>
+              <label>Add New Comment...</label>
+              <input 
+              type="text"
+              placeholder='Add a comment...'
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)} 
+              />
+              <button onClick={handleAddComment}>Submit</button>
+            </div>
+            </>
+          )}
+
     </div>
+
   )
 }
 

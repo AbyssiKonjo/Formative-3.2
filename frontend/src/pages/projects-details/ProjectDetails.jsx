@@ -143,8 +143,6 @@ const ProjectDetails = ({project}) => {
                      )  
                     }
 
-
-                    
                 </div>
             </div>
         
