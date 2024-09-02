@@ -13,22 +13,14 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
-    },
-    github_profile: {
-        type: String,
-        required: true
-    },
-    profile_image: {
-        type: String,
-        default: null
-    },
+    }
 })
 
 // Sign Up Method
-userSchema.statics.signup = async function (username, password, github_profile, profile_image) {
+userSchema.statics.signup = async function (username, password) {
     // No Username or Password entered
-    if (!username || !password || !github_profile) {
-        throw new Error ('All fields must be filled in NOW!!')
+    if (!username || !password) {
+        throw new Error ('All fields must be filled in')
     }
 
     // Checking username is valid
@@ -54,7 +46,7 @@ userSchema.statics.signup = async function (username, password, github_profile, 
     // --- hash by combining the password & salt --- //
     const hash = await bcrypt.hash(password, salt);
     // --- Set password to hash value for the created user
-    const user = await this.create({username, password:hash, github_profile, profile_image})
+    const user = await this.create({username, password:hash})
 
     return user
 }

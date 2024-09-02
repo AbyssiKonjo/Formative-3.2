@@ -2,9 +2,10 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import './singlestudentproject.scss'
 import { useProjectContext } from '../../hooks/useProjectContext'
-import { useAuthContext } from '../../hooks/useAuthContext'
 import { FaGithub } from "react-icons/fa";
 import { IoLogoVercel } from "react-icons/io5";
+import { IoMdArrowRoundBack } from "react-icons/io";
+
 
 const SingleStudentProject = () => {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ const SingleStudentProject = () => {
     <div className='single-page-project'>
 
       <div className='button-div'>
-        <button className='back-button' onClick={()=>navigate(-1)}>Go Back</button>
+        <button className='back-button' onClick={()=>navigate(-1)}><IoMdArrowRoundBack /></button>
       </div>
 
       <div className='title'>
@@ -34,38 +35,50 @@ const SingleStudentProject = () => {
           <img className='single-page-project-image' 
           src={`http://localhost:4000/public/uploads/${project.project_img}`} 
           alt={project.project_name} />
+
+          <div className='profile-pic-overlay'>
+            <div className='profile-avatar'>
+              <span>{project.author_name.charAt(0).toUpperCase()}</span> 
+            </div>
+          </div>
         </div>
         
         <div className='right-overlay'>
           <h3>{project.project_name}</h3><br/>
           <p>{project.description}</p><br/>
           <h4>{project.author_name}</h4><br/>
-          <p>Github Profile: <a href={githubProfile} target="_blank" rel="noopener noreferrer">{githubProfile}</a></p><br/>
+
+          <div className='github-profile'>
+          <p>Github Profile: <a href={project.github_profile} target="_blank" rel="noopener noreferrer">{project.github_profile}</a></p><br/>
+          </div>
 
           <div className='socials'>
 
-            <a href={project.github_repo} target="_blank" rel="noopener noreferrer">
-              <p className='social-icons'>
-                <FaGithub className='github'/>
-              </p>
-            </a>
+            <div className='icon-link-holder'>
+              <a href={project.github_repo} target="_blank" rel="noopener noreferrer">
+                <p className='social-icons'>
+                  <FaGithub className='github'/>
+                </p>
+              </a>
+              <a className='text-link' href={project.github_repo} target="_blank" rel="noopener noreferrer">
+                <span className='link-title'>Github Repo</span>
+              </a>
+            </div>
 
-            <a href={project.vercel_link} target="_blank" rel="noopener noreferrer">
-              <p className='social-icons'>
-              <IoLogoVercel className='vercel' />
-              </p>
-            </a>
+            <div className='icon-link-holder'>
+              <a className='text-link' href={project.vercel_link} target="_blank" rel="noopener noreferrer">
+                <p className='social-icons'>
+                <IoLogoVercel className='vercel' />
+                </p>
+              </a>
+              <a className='text-link' href={project.vercel_link} target="_blank" rel="noopener noreferrer">
+                <span className='link-title'>Vercel Link</span>
+              </a>
+            </div>
 
           </div>
 
         </div>
-
-        <div className='profile-pic-overlay'>
-          <div className='single-student-profile-avatar'>
-            <span>{user.username.charAt(0).toUpperCase()}</span> 
-          </div>
-        </div>
-
       </div>
 
     </div>

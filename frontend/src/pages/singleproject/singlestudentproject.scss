@@ -3,18 +3,24 @@
 
 .single-page-project{
 
-    padding-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: top;
     background-color: black;
+    padding-top: 50px;
+    height: 100vh;
 
     .button-div {
-        position: relative;
-        right: 45%;
+        position: absolute;
+        left: 30px;
+        top: 60px;
         background-color: rgb(255, 255, 255);
-        padding: 5px;
+        width: 60px;
+        padding: 4px;
+        font-size: 26px;
+        border-radius: 20px;
+        transition: background-image 0.3s ease;
     }
     
     .button-div:hover {
@@ -22,15 +28,34 @@
     }
     
     .back-button {
+        margin-left: 15px;
+        display: flex;
+        align-items: center;
         padding: 6px 9px;
         border: none;
+        border-radius: 20px;
         background-color: black;
         font-size: .75em;
         color: white;
+        cursor: pointer;
+        animation: bounce 3s infinite;
+    }
+
+    @keyframes bounce {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(-12px); }
+        100% { transform: translateX(0); }
     }
 }
 
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 h2 {
+    width: 80%;
     padding-top: 20px;
     text-align: center;
     font-size: 3em;
@@ -48,10 +73,18 @@ h2 {
     margin-top: 50px;
     width: 90%;
     padding: 10px;
+    margin-bottom: 100px;
     background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
 }
 
+.single-page-card:hover {
+    background-image: linear-gradient(-50deg, rgba(235,137,62,1), rgba(237,82,85,1), rgba(215,68,152,1), rgba(66,92,170,1), rgba(109,205,232,1), rgba(66,92,170,1), rgba(215,68,152,1), rgba(237,82,85,1), rgba(235,137,62,1),);
+    background-size: 200% 200%;
+    animation: gradient-shift 10s linear infinite;
+}
+
 .left-overlay {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -89,6 +122,23 @@ h2 {
         font-size: 1.1em;
         font-weight: 800;
     }
+
+}
+
+.github-profile {
+    a{
+        background: -webkit-linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+    }
+
+    a:hover {
+        background-image: linear-gradient(-50deg, rgba(235,137,62,1), rgba(237,82,85,1), rgba(215,68,152,1), rgba(66,92,170,1), rgba(109,205,232,1), rgba(66,92,170,1), rgba(215,68,152,1), rgba(237,82,85,1), rgba(235,137,62,1),);
+        background-size: 200% 200%;
+        animation: gradient-shift 10s linear infinite;
+    }
+
 }
 
 .single-page-project-image {
@@ -101,17 +151,12 @@ h2 {
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 56.8%;
+    right: -45px;
     top: 50%;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
-    transform: translate(0,0);
-    &::before {
-        content: "";
-        width: 85%;
-        height: 85%;
+
+    img {
+        object-fit: cover;
+
         background-color: black;
         border-radius: 50%;
         position: absolute;
@@ -126,18 +171,50 @@ h2 {
         background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    .profile-avatar {
+        margin-right: 15px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        &::before {
+            content: "";
+            width: 85%;
+            height: 85%;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 1;
+        }
+        & span {
+            position: relative;
+            z-index: 2;
+            font-size: 1.8em;
+            font-weight: 900;
+            background: -webkit-linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
 }
+
+
 
 .socials {
     display: flex;
-    flex-direction: row;
-    width: 16%;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
+    width: 160px;
+    justify-content: center;
+    align-items: left;
     background: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
     border-radius: 20px;
     margin-top: 20px;
-    padding: 5px;
+    padding: 10px;
 }
 
 .github {
@@ -148,4 +225,19 @@ h2 {
 .vercel {
     color:  rgb(0, 0, 0);
     font-size: 30px;
+}
+
+.icon-link-holder {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+
+    span {
+        margin-left: 5px;
+        color: white;
+    }
+
+    .text-link {
+        color: white;
+    }
 }

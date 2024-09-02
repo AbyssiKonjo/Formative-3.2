@@ -132,6 +132,7 @@ const ProjectDetails = ({project}) => {
                     </div>
                     <div className='project-profile-avatar'>
                         <span>{project.author_name.charAt(0).toUpperCase()}</span> 
+
                     </div>
 
                     {project.author_name === user_id &&(
