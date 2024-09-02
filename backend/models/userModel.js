@@ -13,15 +13,7 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
-    },
-    github_profile: {
-        type: String,
-        required: true
-    },
-    profile_image: {
-        type: String,
-        default: null
-    },
+    }
 })
 
 // Sign Up Method
