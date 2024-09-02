@@ -1,5 +1,5 @@
 import './projects.scss'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import { useProjectContext } from '../../hooks/useProjectContext'
@@ -11,24 +11,57 @@ const Projects = () => {
 
   const {projects, dispatch} = useProjectContext()
 
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const [filteredProjects, setFilteredProjects] = useState([])
+
+
+
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const response = await axios.get(`http://localhost:4000/api/projects`)
-
-      if (response.status === 200) {
-        dispatch({type: 'SET_PROJECTS', payload: response.data})
+        try {
+          const response = await axios.get('http://localhost:4000/api/projects')
+          if (response.status === 200) {
+            dispatch({ type: 'SET_PROJECTS', payload: response.data })
+          }
+        } catch (error) {
+          console.error("Error fetching projects:", error)
+        }
       }
-    }
-
     fetchProjects()
-  }, [])
+  }, [dispatch])
+
+ 
+  useEffect(() => {
+    
+    if (projects) {
+      const filteredData = projects.filter((project) => {
+        return project.author_name.toLowerCase().includes(searchTerm.toLowerCase())
+      })
+      setFilteredProjects(filteredData)
+    }
+  }, [searchTerm, projects])
+
+
 
 
   return (
     <div className='projects-page'>
+      <div className='search-boarder'>
+        <div className='search-container'>
+                  <label htmlFor='search'>Search:</label>
+                  <input
+                  type='text'
+                  name='search'
+                  id='search'
+                  value={searchTerm}
+                  onChange={(event) => setSearchTerm(event.target.value)}
+                  />
+        </div>
+      </div>
       <div className='projects'>
-          {projects && projects.map((project) => {
+          {projects && filteredProjects.map((project) => {
             return (
                 <ProjectDetails key={project._id} project={project}/>
             )

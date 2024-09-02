@@ -7,7 +7,7 @@
     height: 100vh;
     border-left: 5px solid transparent;
     box-sizing: border-box;
-    z-index: 1;
+    z-index: 100;
 }
 
 .form-box::before {
@@ -58,20 +58,25 @@ form {
     font-size: 1.5em;
     width: 100%;
     color: rgb(0, 0, 0);
+    border-radius: 60px;
 }
 
 .form-button-div {
     padding: 5px;
     background-color: black;
+    border-radius: 60px;
 }
 
 .form-button-div:hover {
+    cursor: pointer;
     background-image: linear-gradient(-50deg, rgba(235,137,62,1), rgba(237,82,85,1), rgba(215,68,152,1), rgba(66,92,170,1), rgba(109,205,232,1), rgba(66,92,170,1), rgba(215,68,152,1), rgba(237,82,85,1), rgba(235,137,62,1),);
     background-size: 200% 200%;
     animation: gradient-shift 2s linear infinite;
 }
 
-
+.add-project-button {
+    cursor: pointer;
+}
 
 @keyframes gradient-shift {
     0% {

@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className='home'>
       <h1>2402 WUX <br/> Portfolio</h1>
-      <div className='button-div'>
+      <div className='home-button-div'>
         <button className='home-button'><Link className='link' to='/projects'> View Projects </Link></button>
       </div>
       
