@@ -3,12 +3,14 @@
 }
 
 .edit-project {
+    border-radius: 60px;
     background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
     padding: 5px;
     width: 100%;
 }
 
 .edit-form {
+    border-radius: 60px;
     width: 100%;
     height: 100%;
     background-color: black;
@@ -32,6 +34,7 @@
     justify-content: space-around;
 }
 .edit-button {
+    border-radius: 60px;
     padding: 12px 18px;
     border: none;
     background-color: rgb(0, 0, 0);
@@ -40,23 +43,31 @@
     color: rgb(255, 255, 255);
 }
 
+.edit-button:hover {
+    cursor: pointer;
+}
+
 .edit-button-border {
+    border-radius: 60px;
     padding: 5px;
     background-color: rgb(255, 255, 255);
 }
 .edit-button-border:hover {
+    cursor: pointer;
     background-image: linear-gradient(-50deg, rgba(235,137,62,1), rgba(237,82,85,1), rgba(215,68,152,1), rgba(66,92,170,1), rgba(109,205,232,1), rgba(66,92,170,1), rgba(215,68,152,1), rgba(237,82,85,1), rgba(235,137,62,1),);
     background-size: 200% 200%;
     animation: gradient-shift 2s linear infinite;
 }
 
 .whole-card-border {
+    border-radius: 60px;
     background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
     padding: 5px;
     width: 100%;
 }
 
 .card {
+    border-radius: 60px;
     background-color: black;
     display: flex;
     flex-direction: row;
@@ -65,14 +76,26 @@
 }
 
 .project-img-div{
+    padding: 10px;
     width: 50%;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+    height: 200px;
+    overflow: hidden;
+    display: flex;
 }
 
 .project-img {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px ;
     width: 100%;
 }
 
 .card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: white;
     width: 50%;
     padding: 20px
@@ -126,22 +149,43 @@
     animation: gradient-shift 2s linear infinite;
 }
 
-.profile-border {
-    background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
-    padding: 5px;
-    position: absolute;
-    top: 150px;
-    left: 200px;
-}
 
-.profile-image {
-    width: 100%;
+.project-profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100px;
+    left: 45%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+    transform: translate(0,0);
+    &::before {
+        content: "";
+        width: 85%;
+        height: 85%;
+        background-color: black;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 1;
+    }
+    & span {
+        position: relative;
+        z-index: 2;
+        font-size: 1.4em;
+        font-weight: 900;
+        background: -webkit-linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 .delete {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 40px;
     width: 20px;
     height: 20px;
     color: white;
@@ -157,7 +201,7 @@
 .edit {
     position: absolute;
     top: 10px;
-    right: 30px;
+    right: 65px;
     width: 20px;
     height: 20px;
     color: white;
@@ -182,3 +226,4 @@
         background-position: 0% 50%;
       }
   }
+

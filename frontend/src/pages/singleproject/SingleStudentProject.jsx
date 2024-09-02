@@ -18,7 +18,9 @@ const SingleStudentProject = () => {
   const [showComments, setShowComments] = useState(false);
 
   const user = JSON.parse(localStorage.getItem('user'))
+
   const githubProfile = user.github_profile;
+
 
   if (!projects) {
     return <p>Loading...</p>;
@@ -111,7 +113,6 @@ const SingleStudentProject = () => {
           </div>
 
         </div>
-
       </div>
 
       <div className='show-hide-button-div'>
