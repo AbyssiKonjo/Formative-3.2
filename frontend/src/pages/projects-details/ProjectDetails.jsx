@@ -28,8 +28,6 @@ const ProjectDetails = ({project}) => {
 
     const user = JSON.parse(localStorage.getItem('user'))
     const user_id = user ? user.username : null;
-    const profile_pic = user ? user.profile_image : null;
-
 
     //handle navigate
     const handleNavigate = () => {
@@ -132,11 +130,10 @@ const ProjectDetails = ({project}) => {
                             ago
                         </p>
                     </div>
-                    <div className='profile-border'>
-                        <div className='profile-img'>
-                        <img src={`http://localhost:4000/public/profile/${user.profile_image}`} alt="Profile Pic" />
-                        </div>
+                    <div className='project-profile-avatar'>
+                        <span>{project.author_name.charAt(0).toUpperCase()}</span> 
                     </div>
+
                     {project.author_name === user_id &&(
                         <>
                             <MdEdit className='edit'onClick={handleEdit}/>

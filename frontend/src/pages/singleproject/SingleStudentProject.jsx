@@ -61,9 +61,9 @@ const SingleStudentProject = () => {
         </div>
 
         <div className='profile-pic-overlay'>
-          <img className='single-page-project-image' 
-          src={`http://localhost:4000/public/uploads/${project.author_img}`} 
-          alt={project.author_name} />
+          <div className='single-student-profile-avatar'>
+            <span>{user.username.charAt(0).toUpperCase()}</span> 
+          </div>
         </div>
 
       </div>
