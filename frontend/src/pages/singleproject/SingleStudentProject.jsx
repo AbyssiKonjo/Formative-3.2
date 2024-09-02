@@ -13,7 +13,6 @@ const SingleStudentProject = () => {
   const {projects} = useProjectContext()
 
   const user = JSON.parse(localStorage.getItem('user'))
-  const githubProfile = user.github_profile;
   console.log(user); 
 
   const project = projects.find(proj => proj._id === id)
