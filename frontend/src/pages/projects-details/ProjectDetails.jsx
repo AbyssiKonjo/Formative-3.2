@@ -28,7 +28,6 @@ const ProjectDetails = ({project}) => {
 
     const user = JSON.parse(localStorage.getItem('user'))
     const user_id = user ? user.username : null;
-    const profile_pic = user ? user.profile_image : null;
 
 
     //handle navigate
