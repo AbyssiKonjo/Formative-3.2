@@ -77,7 +77,7 @@ const Form = () => {
 
 
         <label htmlFor="title"> Description:<span>*</span> </label>
-        <input 
+        <input id='description'
           type="text" 
           onChange={(e) => setDescription(e.target.value)}
           value={description}
