@@ -115,20 +115,34 @@ const SingleStudentProject = () => {
         </div>
       </div>
 
-      <div className='show-hide-button-div'>
-      <button className='show-hide-button' onClick={() => {
-          setShowComments(!showComments) 
-          console.log(project.comments[0])}}>
-          {showComments ? 'Hide Comments' : 'Show Comments'}
-        </button>
-      </div>
+      <div className='comment-box'>
+        <div className='show-comments'>
+            <div className='show-hide-button-div'>
+              <button className='show-hide-button' onClick={() => {
+              setShowComments(!showComments) 
+              console.log(project.comments[0])}}>
+              {showComments ? 'Hide Comments' : 'Show Comments'}
+            </button>
+          </div>
 
           {showComments&& (
             <>
+            <div className='add-comment'>
+              <label>Show Some Love</label>
+              <input 
+              type="text"
+              placeholder='Add a comment...'
+              value={commentText}
+              onChange={(e) => setCommentText(e.target.value)} 
+              />
+              <div className='button-holder'>
+              <button className='submit-button' onClick={handleAddComment}>Submit</button>
+              </div>
+            </div>
             <div className='comments'>
               {project.comments.map((comment) => (
                 <div key={comment._id} className='comment'>
-                  <h5>{project.author_name}</h5>
+                  <h5>{comment.user_id}</h5>
                   <p>{comment.text}</p>
                   <span>Posted: {formatDistanceToNow(new Date(comment.createdAt), {
                     includeSeconds: true,
@@ -137,18 +151,10 @@ const SingleStudentProject = () => {
 
               ))}
             </div>
-            <div className='add-comment'>
-              <label>Add New Comment...</label>
-              <input 
-              type="text"
-              placeholder='Add a comment...'
-              value={commentText}
-              onChange={(e) => setCommentText(e.target.value)} 
-              />
-              <button onClick={handleAddComment}>Submit</button>
-            </div>
             </>
           )}
+          </div>
+      </div>
 
     </div>
 

@@ -73,7 +73,7 @@ h2 {
     margin-top: 50px;
     width: 90%;
     padding: 10px;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
     background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
 }
 
@@ -164,7 +164,7 @@ h2 {
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: -75px;
+    right: -60px;
     top: 50%;
 
     img {
@@ -249,30 +249,60 @@ h2 {
 
 /* Comments */
 
+.comment-box {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.show-comments {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin-bottom: 50px;
+}
+
 .add-comment {
-    border: 3px solid var(--primary);
+    width: 350px;
+    display: flex;
+    flex-direction: column;
     border-radius: 8px;
     padding: 10px;
     margin-top: 20px;
+    border: 3px rgb(255, 255, 255) solid;
+    margin-bottom: 20px;
   }
 
 .add-comment label {
+    font-family: "DM Sans", sans-serif;
+    font-weight: 800;
     margin-top: 10px;
+    color: white;
   }
   
 .add-comment input {
+    font-family: "DM Sans", sans-serif;
     margin-bottom: 0;
+    margin-top: 5px;
+    width: 100%;
+    height: 30px
   }
   
 .comment {
-    border: 3px solid var(--primary);
+    border: 3px solid rgb(255, 255, 255);
     border-radius: 10px;
     margin: 10px 0;
     padding: 10px;
+    color: white;
+    width: 100%;
   }
 
 .comments h5 {
-    color: var(--primary);
+    background: -webkit-linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 5px;
     font-size: 1em;
     font-weight: 900;
@@ -280,19 +310,44 @@ h2 {
   
 .comments span {
     font-size: 0.75em !important;
+    color: white;
   }
+
+  .button-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    padding: 4px;
+    border-radius: 12px;
+    width: 90px;
+    background-color: white;
+  }
+
+  .button-holder:hover {
+    background-image: linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
+  }
+
+  .submit-button {
+    color: White;
+    width: 90px;
+    padding: 2px;
+    border-radius: 10px;
+    background-color: black;
+    border: none;
+    cursor: pointer;
+  }
+
+  // Comment button
 
 .show-hide-button-div {
     position: relative;
-    left: 30px;
-    top: 60px;
     background-color: rgb(255, 255, 255);
     width: 190px;
-    height: 50px;
-    padding: 4px;
+    height: 40px;
+    padding: 5px;
     font-size: 26px;
     border-radius: 20px;
-    transition: background-image 0.3s ease;
 }
 
 .show-hide-button-div:hover {
@@ -300,24 +355,19 @@ h2 {
 }
 
 .show-hide-button {
-    margin-left: 15px;
+    position: relative;
     display: flex;
     align-items: center;
-    padding: 6px 9px;
+    justify-content: center;
+    padding: 6px 13px;
+    height: 100%;
+    width: 100%;
     border: none;
-    border-radius: 20px;
+    border-radius: 22px;
     background-color: black;
     font-size: .75em;
     color: white;
     cursor: pointer;
-    animation: bounce2 3s infinite;
-}
-
-@keyframes bounce2 {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
-
 }
 
 
