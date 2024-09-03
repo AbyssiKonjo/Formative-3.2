@@ -290,27 +290,74 @@ h2 {
     height: 30px
   }
   
-.comment {
-    border: 3px solid rgb(255, 255, 255);
+.comment:nth-child(1n) {
+    border: 3px solid rgba(235,137,62,1);
     border-radius: 10px;
     margin: 10px 0;
     padding: 10px;
     color: white;
     width: 100%;
+
+    h5 {
+        color: rgba(235,137,62,1);
+            margin-bottom: 5px;
+            font-size: 1em;
+            font-weight: 900;
+    }
+    p {
+        color: white;
+        margin-bottom: 5px;
+    }
   }
 
-.comments h5 {
-    background: -webkit-linear-gradient(-50deg, rgba(235,137,62,1) 0%, rgba(237,82,85,1) 25%, rgba(215,68,152,1) 50%, rgba(66,92,170,1) 80%, rgba(109,205,232,1) 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 5px;
-    font-size: 1em;
-    font-weight: 900;
+.comment:nth-child(2n) {
+    border: 3px solid rgba(237,82,85,1);
+
+    h5 {
+        color: rgba(237,82,85,1);;
+    }
+    p {
+        color: white;
+    }
   }
+
+  .comment:nth-child(3n) {
+    border: 3px solid rgba(215,68,152,1);
+
+    h5 {
+        color: rgba(215,68,152,1);
+    }
+    p {
+        color: white;
+    }
+  }
+
+  .comment:nth-child(4n) {
+    border: 3px solid  rgba(66,92,170,1);
+
+    h5 {
+        color: rgba(66,92,170,1);
+    }
+    p {
+        color: white;
+    }
+  }
+
+  .comment:nth-child(5n) {
+    border: 3px solid rgba(109,205,232,1);
+
+    h5 {
+        color: rgba(109,205,232,1);
+    }
+    p {
+        color: white;
+    }
+  }
+
   
 .comments span {
     font-size: 0.75em !important;
-    color: white;
+    color: rgb(158, 158, 158);
   }
 
   .button-holder {
