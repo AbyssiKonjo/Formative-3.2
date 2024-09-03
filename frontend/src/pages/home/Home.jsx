@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <div className='home'>
-      <h1>2402 WUX <br/> Portfolio</h1>
-      <div className='home-button-div'>
-        <button className='home-button'><Link className='link' to='/projects'> View Projects </Link></button>
+      <div className='background'> </div>
+        <h1>2402 WUX <br/> Portfolio</h1>
+        <div className='home-button-div'>
+          <button className='home-button'><Link className='link' to='/projects'> View Projects </Link></button>
+        
       </div>
-      
     </div>
   )
 }
