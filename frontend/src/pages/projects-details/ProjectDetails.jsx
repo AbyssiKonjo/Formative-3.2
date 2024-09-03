@@ -121,7 +121,7 @@ const ProjectDetails = ({project}) => {
                         <FaArrowRight className='arrow' />
                         </div>
                         
-                        <p>{project.author_name}</p>
+                        <p><b>{project.author_name}</b></p>
                         <p>
                             Created&nbsp; 
                             {formatDistanceToNow(new Date(project.createdAt), {

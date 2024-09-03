@@ -50,7 +50,7 @@ const Projects = () => {
     <div className='projects-page'>
       <div className='search-boarder'>
         <div className='search-container'>
-                  <label htmlFor='search'>Search:</label>
+                  <label htmlFor='search'>Search Creator:</label>
                   <input
                   type='text'
                   name='search'

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useProjectContext } from '../../../hooks/useProjectContext'
 import axios from 'axios'
 
-const Form = () => {
+const Form = ({closeMethod}) => {
   const { dispatch } = useProjectContext()
 
   const [title, setTitle] = useState('')
@@ -25,14 +25,12 @@ const Form = () => {
 
     const user = JSON.parse(localStorage.getItem('user'))
     const authorName = user.username
-    const authorImage = user.profile_image
     const gitProfile = user.github_profile
 
     const formData = new FormData()
     formData.append('project_name', title)
     formData.append('project_image', projectImage)
     formData.append('author_name', authorName)
-    formData.append('author_image', authorImage)
     formData.append('description', description)
     formData.append('github_repo', gitRepo)
     formData.append('vercel_link', vercelLink)
@@ -54,16 +52,21 @@ const Form = () => {
       setError(null)
 
       dispatch({type: 'CREATE_PROJECTS', payload: response.data})
+
+      if (typeof closeMethod === 'function') {
+        closeMethod()
+      }
+
+      
     } catch (error) {
       setError(error.message)
     }
-    
   }
 
   return (
     <div className='form-box'>
 
-      <form>
+      <form  onSubmit={handleSubmit}>
         <h3> Add Project </h3>
         
         <label htmlFor="title"> Project Name:<span>*</span> </label>
@@ -111,7 +114,7 @@ const Form = () => {
         <input type='file' accept='image/*' onChange={(e) => setProjectImage(e.target.files[0])} required/>
 
         <div className='form-button-div'>
-          <button className='add-project-button' onClick={handleSubmit}> Add Project </button>
+          <button type='submit' className='add-project-button'> Add Project </button>
         </div>
         {error && <div className="error">{error}</div>}
 
